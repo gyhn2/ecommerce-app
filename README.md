@@ -29,8 +29,9 @@ The E-commerce Web Application serves as an intuitive online shopping platform c
 <img width="600" alt="Screenshot 2023-11-28 at 5 18 28 PM" src="https://github.com/gyhn2/ecommerce-app/assets/80073085/bd5b2242-0385-4e7a-a99c-9285a61ed00f">
 <img width="600" alt="Screenshot 2023-11-28 at 5 18 42 PM" src="https://github.com/gyhn2/ecommerce-app/assets/80073085/bf3ff657-d609-44f7-8edb-a8d3f3162601">
 <img width="600" alt="Screenshot 2023-11-28 at 5 19 00 PM" src="https://github.com/gyhn2/ecommerce-app/assets/80073085/f46b7ecb-5355-40eb-ad9d-07fdd533899d">
+<img width="600" alt="Screenshot 2023-11-28 at 5 19 49 PM" src="https://github.com/gyhn2/ecommerce-app/assets/80073085/cd748abe-1484-44e6-a881-1beaa1933c2d">
 
-<img width="700" alt="Screenshot 2023-11-28 at 5 19 49 PM" src="https://github.com/gyhn2/ecommerce-app/assets/80073085/cd748abe-1484-44e6-a881-1beaa1933c2d">
+### Mobile view
 <img width="333" alt="Screenshot 2023-11-28 at 5 19 37 PM" src="https://github.com/gyhn2/ecommerce-app/assets/80073085/dda32981-5f56-4bbf-a294-ca810cf41f2e">
 
 
