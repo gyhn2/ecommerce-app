@@ -19,10 +19,8 @@
   "keywords": [],
   "author": "Yun Jae Nam, Yun Hye Nam",
   "license": "MIT",
-  "devDependencies": {
-    "concurrently": "^8.2.0"
-  },
   "dependencies": {
+    "concurrently": "^8.2.2",
     "moment": "^2.29.4"
   }
 }
