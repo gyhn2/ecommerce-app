@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom"
 import axios from "axios"
 import './Product.css'
 import './ProductsList.css';
-import ProductCards from '../subcomponents/ProductCards'
+import ProductCards from './ProductCards'
 import { productReducer, productInitialState } from '../../utils/reducer'
 import { urlChange } from '../../utils/util'
 import { sample } from 'underscore'

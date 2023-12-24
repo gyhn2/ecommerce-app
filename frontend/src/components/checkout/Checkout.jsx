@@ -3,11 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import axios from "axios"
 import './Checkout.css'
-import PaymentType from '../subcomponents/PaymentType'
-import PaymentForm from '../subcomponents/PaymentForm'
-import CustomerForm from '../subcomponents/CustomerForm'
-import CheckoutSummary from '../subcomponents/CheckoutSummary'
-import FormSummary from '../subcomponents/FormSummary'
+import PaymentType from './PaymentType'
+import PaymentForm from './PaymentForm'
+import CustomerForm from './CustomerForm'
+import CheckoutSummary from './CheckoutSummary'
+import FormSummary from './FormSummary'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
@@ -51,13 +51,20 @@ export function Checkout({userId, cart, setCart, subtotal, stateCH, orderToast, 
         const controller = new AbortController();
 
         if (userId > 0) {
-            axios.get(`/api/users/profile`, {signal: controller.signal})
+            axios.get(`/api/shipping`, {signal: controller.signal})
             .then(res => {
                 if (isMounted) {
-                    let user = res.data[0]
-                    setValue("firstname", user.firstname)
-                    setValue("lastname", user.lastname)
-                    setValue("email", user.email)
+                    let user = res.data.rows[0]
+                    setValue("firstname", user.first_name? user.first_name : "")
+                    setValue("lastname", user.last_name? user.last_name: "")
+                    setValue("email", user.email ? user.email : "")
+                    setValue("phone", user.phone_number ? user.phone_number : "")
+                    setValue("address", user.addr_line_1 ? user.addr_line_1 : "")
+                    setValue("city", user.addr_city ? user.addr_city : "")
+                    setValue("province", user.addr_province ? user.addr_province : "")
+                    setValue("country", user.addr_country ? user.addr_country : "CA")
+                    setValue("postalCode", user.addr_postal ? user.addr_postal : "")
+                    setValue("addressTwo", user.addr_line_2 ? user.addr_line_2 : "")
                 }
             })
             .catch(err => console.log(err))
@@ -137,7 +144,6 @@ export function Checkout({userId, cart, setCart, subtotal, stateCH, orderToast, 
             phone: data.bphone,
         }
         let paymentInfo = { shipDetails, cardDetails, billDetails }
-        console.log(paymentInfo)
 
         axios.post("/api/carts/checkout", 
             {

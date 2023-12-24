@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginForm from "../subcomponents/LoginForm"
+import LoginForm from "./LoginForm"
 import { loginReducer, loginInitialState } from "../../utils/reducer";
 import "./AuthPage.css"
 

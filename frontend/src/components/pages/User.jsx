@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import axios from "axios";
 import './User.css'
+import { states, provinces } from '../../utils/util'
 
 
-export function User() {
+export function User(id) {
 
-    const { id } = useParams()
     const [user, setUser] = useState({});
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -26,33 +26,7 @@ export function User() {
     const [newEmail, setNewEmail] = useState("");
     const [newPassword, setNewPassword] = useState("********");
 
-    // Fetch user data
-    useEffect(() => {
-
-        let isMounted = true;
-        const controller = new AbortController();
-
-        axios.get("/api/users/profile", { signal: controller.signal })
-            .then((res) => {
-                if (isMounted) {
-                    setUser(res.data[0]);
-                    setNewFirstName(res.data[0].firstname);
-                    setNewLastName(res.data[0].lastname);
-                    setNewEmail(res.data[0].email);
-                    // setNewPassword(res.data[0].password);
-                    setLoading(false);
-                }
-            })
-            .catch(err => setError(true));
-
-        return () => {
-            isMounted = false;
-            isMounted && controller.abort();
-        };
-
-    }, [id]);
-
-    // Fetch shipping data
+    // Fetch user and shipping data
     useEffect(() => {
 
         let isMounted = true;
@@ -61,7 +35,7 @@ export function User() {
         axios.get("/api/shipping/", { signal: controller.signal })
             .then((res) => {
                 if (isMounted) {
-                    if (res.data.rows[0] === undefined) {
+                    if (res.data.rows[0].id === null) {
                         // Run the post request to create shipping entry
                         const newShippingData = {
                             first_name: user.firstname,
@@ -84,6 +58,10 @@ export function User() {
                                 setError(true);
                             });
                     } else {
+                        setNewFirstName(res.data.rows[0].firstname);
+                        setNewLastName(res.data.rows[0].lastname);
+                        setNewEmail(res.data.rows[0].email);
+    
                         setShipping(res.data.rows[0]);
                         setNewAddrLine1(res.data.rows[0].addr_line_1);
                         setNewAddrLine2(res.data.rows[0].addr_line_2);

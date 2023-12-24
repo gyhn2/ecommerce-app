@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useReducer } from "react";
 import axios from "axios";
 import { useSearchParams, Link, useParams } from 'react-router-dom';
-import Pagination from '../subcomponents/Pagination'
-import ProductCards from '../subcomponents/ProductCards'
+import Pagination from './Pagination'
+import ProductCards from './ProductCards'
 import './ProductsList.css';
 import { productListReducer, productListInitialState } from '../../utils/reducer'
 import { urlChange } from '../../utils/util'

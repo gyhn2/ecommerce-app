@@ -13,6 +13,15 @@ const { faker } = require('@faker-js/faker');
             firstname       VARCHAR(50),
             lastname        VARCHAR(50),
             isactive        BOOLEAN,
+            ship_first_name TEXT,
+            ship_last_name  TEXT,
+            addr_line_1     TEXT,
+            addr_line_2     TEXT,
+            addr_city       TEXT,
+            addr_province   TEXT,
+            addr_country    TEXT,
+            addr_postal     TEXT,
+            phone_number    TEXT,
             UNIQUE(email)
         );
     `

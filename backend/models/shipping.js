@@ -9,14 +9,17 @@ module.exports = class ShippingModel {
     static async getShippingByUserid(userid) {
         try {
 
-            const statement = `SELECT *
-                               FROM shipping
-                               WHERE userid = $1`;
+            const statement = `SELECT s.*, u.email, u.firstname, u.lastname
+                               FROM shipping s
+                               RIGHT JOIN users u
+                               ON s.userid = u.id
+                               WHERE u.id = $1`;
             const values = [userid];
 
             const result = await db.query(statement, values);
 
             if (result.rows) {
+                console.log(result.rows)
                 return result;
             }
 

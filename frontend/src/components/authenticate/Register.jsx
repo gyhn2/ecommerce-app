@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import RegisterForm from "../subcomponents/RegisterForm"
+import RegisterForm from "./RegisterForm"
 import "./AuthPage.css"
 import { registerReducer, registerInitialState } from "../../utils/reducer";
 

@@ -1,4 +1,4 @@
-import DropDown from "./DropDown"
+import CheckoutDropDown from "./CheckoutDropDown"
 import validator from 'validator'
 
 export default function CustomerForm(
@@ -79,7 +79,7 @@ export default function CustomerForm(
                         </label>
                     </div>
                     <div className={`cinfo ${errors.province? 'error' : '' }`}>
-                        <DropDown which={formType ? 'province' : 'bprovince'} {...{register, country}}/>
+                        <CheckoutDropDown which={formType ? 'province' : 'bprovince'} {...{register, country}}/>
                         <label 
                             htmlFor={formType ? "cinfo-province" : "binfo-province"}
                             className={`cinfo-label ${province.length? 'active' : ''}`}>
@@ -114,7 +114,7 @@ export default function CustomerForm(
                         </label>
                     </div>
                     <div className={`cinfo ${errors.country? 'error' : '' }`}>
-                        <DropDown 
+                        <CheckoutDropDown 
                             which={formType ? 'country' : 'bcountry'} 
                             register={register} 
                             setValue={setValue}

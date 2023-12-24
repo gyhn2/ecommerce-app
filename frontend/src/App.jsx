@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef, useReducer, useCallback } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './components/pages/Home';
-import { Product } from './components/pages/Product';
-import { ProductsList } from './components/pages/ProductsList';
+import { Product } from './components/product/Product';
+import { ProductsList } from './components/product/ProductsList';
 import { User } from './components/pages/User';
 import { Cart } from './components/pages/Cart';
-import { Login } from './components/pages/Login';
-import { Register } from './components/pages/Register';
-import { Orders } from './components/pages/Orders';
-import { GuestOrder } from './components/pages/GuestOrder';
+import { Login } from './components/authenticate/Login';
+import { Register } from './components/authenticate/Register';
+import { Orders } from './components/order/Orders';
+import { GuestOrder } from './components/order/GuestOrder';
 import { Contact } from './components/pages/Contact';
-import { Checkout } from './components/pages/Checkout';
+import { Checkout } from './components/checkout/Checkout';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import ScrollOnChange  from './components/subcomponents/ScrollOnChange'
@@ -89,7 +89,7 @@ function App() {
                 <Route path='/products' element={<ProductsList />} />
                 <Route path='/products/:category' element={<ProductsList />} />
                 <Route path='/products/:category/:subcategory' element={<ProductsList />} />
-                <Route path='/users/profile' element={<User userId={userId}/>} />
+                <Route path='/users/profile' element={<User id={userId}/>} />
                 <Route path='/cart' element={<Cart {...{userId, cart, setCart, subtotal}}/>} />
                 <Route path='/orders' element={<Orders {...{userId}}/>}></Route>
                 <Route path='/guest-order' element={<GuestOrder {...{userId}}/>}></Route>
